@@ -1,7 +1,7 @@
 import pandas as pd
 import plotly.express as px
 
-df = pd.read_csv('../eurostat_hicpv2.csv')
+df = pd.read_csv('eurostat_hicpv2.csv')
 
 value_vars = df.columns.tolist()[1:]
 
@@ -12,7 +12,7 @@ df = df.iloc[6:]
 fig = px.line(df, x="years", y="inflation_rate", color="geo", title='Inflation Rates Comparison')
 fig.show()
 
-df_geo = pd.json_normalize(pd.read_json('../covid19-stream-data.json')['records'])
+df_geo = pd.json_normalize(pd.read_json('covid19-stream-data.json')['records'])
 
 df.loc[df.geo == 'United Kingdom', 'geo'] = 'United_Kingdom'
 df.loc[df.geo == 'United States', 'geo'] = 'United_States'
