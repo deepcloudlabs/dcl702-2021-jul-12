@@ -8,6 +8,6 @@ producer = KafkaProducer(bootstrap_servers=['localhost:9092'], value_serializer=
 for _ in range(1_000):
     quantity = random.randint(100, 400)
     price = random.randint(90, 110)
-    order = {'symbol': 'orcl', 'price': price, 'quantity': quantity}
+    order = {'symbol': 'orcl', 'price': price, 'quantity': quantity, 'side': 'bid'}
     producer.send('orders', value=order)
     sleep(3)
